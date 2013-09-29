@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Posts</title>
+    <link rel="stylesheet" href="/main.css" type="text/css"  charset="utf-8">
+  </head>
+  <body>
+    <h1>Posts</h1>
+    <div class="pagination">
+      <% if (skip - limit >= 0) { -%>
+        <a href="?skip=<%= skip - limit %>">prev</a>
+      <% } %>
+      <%= skip %> &mdash; <%= skip + (limit - 1) %>.
+      <a href="?skip=<%= skip + limit %>">next</a>
+    </div>
+    <div id="posts">
+      <% posts.forEach(function(post) { -%>
+        <% var p = post.toJSON() -%>
+        <div class="p">
+          <% if (p.image !== 'undefined') { -%>
+            <img src="<%= post.get('image').url() %>" style="width:125px">
+          <% } -%>
+          <div style="font-weight:bold">
+            <%= p.title %>
+          </div>
+          <div class="p-loc">
+            <% if (p.taken) { -%>
+              T
+            <% } -%>
+            <%= p.location.latitude.toFixed(3) %>,<%= p.location.longitude.toFixed(3) %>
+            <br>
+            <%= moment(p.createdAt).fromNow() %>
+          </div>
+          <%= p.description %>
+        </div>
+      <% }) -%>
+    </div>
+  </body>
+</html>

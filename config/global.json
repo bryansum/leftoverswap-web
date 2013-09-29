@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "LeftoverSwap": {
+            "applicationId": "rxURqAiZdT4w3QiLPpecMAOyFF2qzVxsLPD1FcGR", 
+            "masterKey": "N0tYPCHv8hFetb101SnwxdtnTmWejP5f8cUhdubC"
+        }, 
+        "_default": {
+            "link": "LeftoverSwap"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.12"
+    }
+}
